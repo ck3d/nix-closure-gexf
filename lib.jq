@@ -1,8 +1,6 @@
-def name: capture("^/nix/store/[a-zA-Z0-9]{32}-(?<name>.*)$") | .name;
-
-def optional(f; x): if f then x else . end;
-
 def toXml:
+  def optional(f; x): if f then x else . end;
+
   optional
   ( type == "array"
   ; .[] )
@@ -25,11 +23,13 @@ def toXml:
       | add )}
   | "<\(.tag)\(.attr // "")>\(.data // "")</\(.tag)>"
   else
-    "\(. // "")"
+    . // ""
   end
 ;
 
 def nodes:
+  def name: capture("^/nix/store/[a-zA-Z0-9]{32}-(?<name>.*)$") | .name;
+
   reduce .[] as $in
   ( []
   ; .
