@@ -1,7 +1,7 @@
 {
   description = "nix-closure-gexf flake";
 
-  inputs.nixpkgs.url = "github:nixos/nixpkgs/release-23.05";
+  inputs.nixpkgs.url = "github:nixos/nixpkgs/23.11";
 
   outputs = { self, nixpkgs }:
     let
