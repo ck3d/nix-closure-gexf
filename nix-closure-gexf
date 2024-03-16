@@ -2,4 +2,4 @@
 set -euo pipefail
 
 nix path-info --recursive --size --closure-size --json "$1" \
-| jq --raw-output --from-file "${NIX_CLOSURE_GEXF_LIB:-./lib.jq}"
+  | jq --raw-output --from-file "${NIX_CLOSURE_GEXF_LIB:-./lib.jq}"
